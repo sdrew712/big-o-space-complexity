@@ -317,6 +317,15 @@ console.timeEnd("memoized factorial");
 */
 
 // CODE HERE
+class answersCache {
+  constructor() {
+    this.cache = {}
+  }
+  cacheAnswer(answer){
+    this.cache[answer] = answer
+    return answer
+  }
+}
 
 /*
     Copy and paste the method outside the class and
@@ -325,28 +334,34 @@ console.timeEnd("memoized factorial");
 */
 
 // CODE HERE 
+function cacheAnswer(answer){
+  return answer
+}
+
 
 /*
     Before you see how much time they take, make a 
     guess as to if one will be faster.
 */
 
-// ANSWER: 
+// ANSWER: the cached one
 
 // Now fill this out and run your file
 
 // CREATE A NEW INSTANCE OF YOUR CLASS
 
+const newAnswer = new answersCache
+
 console.time("not memoized function time");
-console.log(/* CALL YOUR NONCACHE FN*/)
-console.log(/* CALL YOUR NONCACHE FN*/)
-console.log(/* CALL YOUR NONCACHE FN*/)
-console.log(/* CALL YOUR NONCACHE FN*/)
+console.log(cacheAnswer("wassup"))
+console.log(cacheAnswer("wassup"))
+console.log(cacheAnswer("wassup"))
+console.log(cacheAnswer("wassup"))
 console.timeEnd("not memoized function time");
 
 console.time("memoized function time");
-console.log(/* CALL THE METHOD FROM YOUR CLASS*/)
-console.log(/* CALL THE METHOD FROM YOUR CLASS*/)
-console.log(/* CALL THE METHOD FROM YOUR CLASS*/)
-console.log(/* CALL THE METHOD FROM YOUR CLASS*/)
+console.log(newAnswer.cacheAnswer("wassup"))
+console.log(newAnswer.cacheAnswer("wassup"))
+console.log(newAnswer.cacheAnswer("wassup"))
+console.log(newAnswer.cacheAnswer("wassup"))
 console.timeEnd("memoized function time");
