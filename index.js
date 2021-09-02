@@ -246,12 +246,8 @@ function countLettersRoundTwo(str) {
 
 // CODE HERE 
 class Factorial {
-  constructor(num) {
+  constructor() {
     this.cache = {}
-    this.num = num
-  }
-  get fac() {
-    return this.calcFac();
   }
   calcFac(num){
     if (this.cache.hasOwnProperty(num)){
@@ -259,11 +255,11 @@ class Factorial {
     }
     else{
       let answer = 1;
-      for (let i = 1; i <= this.num; i++){
-        answer = answer * i;
+      for (let i = 1; i <= num; i++){
+        answer *= i;
       }
-      this.cache[this.num] = answer
-      // return answer
+      this.cache[num] = answer
+      return answer
     }
   }
 }
@@ -280,7 +276,7 @@ class Factorial {
 function noCacheCalcFac(num){
   let answer = 1;
   for (let i = 1; i <= num; i++){
-    answer = answer * i;
+    answer *= i;
   }
   return answer
 }
@@ -293,7 +289,7 @@ function noCacheCalcFac(num){
   (run using 'node index.js' in the terminal)
 */
 
-const myFac = // CREATE A NEW INSTANCE OF THE FACTORIAL CLASS
+const myFac = new Factorial
 
 console.time("not memoized factorial");
 console.log(noCacheCalcFac(8))
@@ -302,11 +298,12 @@ console.log(noCacheCalcFac(8))
 console.log(noCacheCalcFac(8))
 console.timeEnd("not memoized factorial");
 
+
 console.time("memoized factorial");
-console.log(/* CALL THE CALCFAC METHOD OFF OF MYFAC 8*/)
-console.log(/* CALL THE CALCFAC METHOD OFF OF MYFAC 8*/)
-console.log(/* CALL THE CALCFAC METHOD OFF OF MYFAC 8*/)
-console.log(/* CALL THE CALCFAC METHOD OFF OF MYFAC 8*/)
+console.log(myFac.calcFac(8))
+console.log(myFac.calcFac(8))
+console.log(myFac.calcFac(8))
+console.log(myFac.calcFac(8))
 console.timeEnd("memoized factorial");
 
 // 13) Memoization Challenge
